@@ -315,7 +315,8 @@ function ninja_forms_field_verification_pre_process( $field_id, $user_value ){
 	// Verification
 	$_verification = $ninja_forms_processing->get_extra_value( '_ninja_forms_field_' . $field_id );
 	if ( $_verification != $user_value ) {
-		$ninja_forms_processing->add_error('verification-'.$field_id, 'Does Not Match');
+		$ninja_forms_processing->add_error( 'email-'.$field_id, $invalid_email, $field_id );
+    		$ninja_forms_processing->add_error( 'email-general', $invalid_email );
 	}
 }
 
