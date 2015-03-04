@@ -103,7 +103,9 @@ function ninja_forms_register_field_verification(){
 		'sub_table_value' => 'nf_field_verification_sub_table_value',
 	);
 
-	ninja_forms_register_field( '_verification', $args );
+	if ( function_exists('ninja_forms_register_field') ) {
+		ninja_forms_register_field( '_verification', $args );
+	}
 }
 
 add_action( 'init', 'ninja_forms_register_field_verification' );
