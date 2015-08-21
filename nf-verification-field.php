@@ -276,7 +276,7 @@ function ninja_forms_field_verification_display( $field_id, $data, $form_id = ''
 	<input id="ninja_forms_field_<?php echo $field_id;?>" data-mask="<?php echo $mask;?>" data-input-limit="<?php echo $input_limit;?>" data-input-limit-type="<?php echo $input_limit_type;?>" data-input-limit-msg="<?php echo $input_limit_msg;?>" name="ninja_forms_field_<?php echo $field_id;?>" type="text" class="<?php echo $field_class;?> <?php echo $mask_class;?>" value="<?php echo $default_value;?>" rel="<?php echo $field_id;?>" />
 
 	<!-- Duplication for Verification -->
-	<input id="_ninja_forms_field_<?php echo $field_id;?>" data-mask="<?php echo $mask;?>" data-input-limit="<?php echo $input_limit;?>" data-input-limit-type="<?php echo $input_limit_type;?>" data-input-limit-msg="<?php echo $input_limit_msg;?>" name="_ninja_forms_field_<?php echo $field_id;?>" type="text" class="<?php echo $field_class;?> <?php echo $mask_class;?>" rel="<?php echo $field_id;?>" />
+	<input placeholder="Confirm your value" id="_ninja_forms_field_<?php echo $field_id;?>" data-mask="<?php echo $mask;?>" data-input-limit="<?php echo $input_limit;?>" data-input-limit-type="<?php echo $input_limit_type;?>" data-input-limit-msg="<?php echo $input_limit_msg;?>" name="_ninja_forms_field_<?php echo $field_id;?>" type="text" class="<?php echo $field_class;?> <?php echo $mask_class;?>" rel="<?php echo $field_id;?>" />
 	<?php
 
 }
@@ -317,7 +317,7 @@ function ninja_forms_field_verification_pre_process( $field_id, $user_value ){
 	// Verification
 	$_verification = $ninja_forms_processing->get_extra_value( '_ninja_forms_field_' . $field_id );
 	if ( $_verification != $user_value ) {
-		$ninja_forms_processing->add_error( 'email-'.$field_id, $invalid_email, $field_id );
+		$ninja_forms_processing->add_error( 'email-'.$field_id, 'Please confirm your email address.', $field_id );
     		$ninja_forms_processing->add_error( 'email-general', $invalid_email );
 	}
 }
